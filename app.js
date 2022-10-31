@@ -23,8 +23,8 @@ var createNewTaskElement=function(taskString){
     //input (checkbox)
     var checkBox=document.createElement("input");//checkbx
     checkBox.classList.add('input-checkbox')
-    //label
-    var label=document.createElement("label");//label
+    //p
+    var p=document.createElement("p");//p
     //input (text)
     var editInput=document.createElement("input");//text
     //button.edit
@@ -36,8 +36,8 @@ var createNewTaskElement=function(taskString){
     deleteButtonImg.classList.add('img-delete')
     deleteButtonImg.setAttribute("alt","delete icon");
 
-    label.innerText=taskString;
-    label.classList.add('task');
+    p.innerText=taskString;
+    p.classList.add('task');
 
     //Each elements, needs appending
     checkBox.type="checkbox";
@@ -54,7 +54,7 @@ var createNewTaskElement=function(taskString){
 
     //and appending.
     listItem.appendChild(checkBox);
-    listItem.appendChild(label);
+    listItem.appendChild(p);
     listItem.appendChild(editInput);
     listItem.appendChild(editButton);
     listItem.appendChild(deleteButton);
@@ -87,8 +87,8 @@ var editTask=function(){
     var listItem=this.parentNode;
 
     var editInput=listItem.querySelector('.input-text');
-    var label=listItem.querySelector("label");
-    label.classList.add('editMode-label')
+    var p=listItem.querySelector("p");
+    p.classList.add('editMode-label')
     
     var editBtn=listItem.querySelector(".edit");
     var containsClass=listItem.classList.contains("editMode");
@@ -96,12 +96,12 @@ var editTask=function(){
     if(containsClass){
 
         //switch to .editmode
-        //label becomes the inputs value.
-        label.innerText=editInput.value;
+        //p becomes the inputs value.
+        p.innerText=editInput.value;
         
         editBtn.innerText="Edit";
     }else{
-        editInput.value=label.innerText;
+        editInput.value=p.innerText;
         editBtn.innerText="Save";
     }
 
